@@ -2,6 +2,7 @@ import './App.css';
 import Header from'./header';
 import styled from 'styled-components';
 import Wrapper from './wrapper';
+import Juego from './juego';
 
 
 const AppStyled = styled.main`
@@ -19,6 +20,7 @@ function App() {
       <Wrapper>
 
         <Header/>
+        <Juego />
 
       </Wrapper>
     

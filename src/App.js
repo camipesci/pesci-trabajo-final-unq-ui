@@ -7,7 +7,7 @@ import Juego from './juego';
 
 
 const AppStyled = styled.main`
-  background: #f7d7d7;
+  background: #cde1c3;
   min-height:100vh;
   padding: 4em 0;
   box-sizing: border-box
@@ -26,16 +26,13 @@ function App() {
   return (
     <AppStyled>
       <Wrapper>
-      <h1>Bienvenido al juego</h1>
+      
         <div classNme= "app-content">
-        <Header/>
-        <Juego />
-        
-
+            
+            <Header/>
+            <Juego />
         </div>
-        
       </Wrapper>
-    
     </AppStyled>
   );
 }

@@ -1,6 +1,7 @@
 import React, {useState } from 'react';
 import styled from 'styled-components';
 import Ficha from './ficha';
+import Boton from './boton';
 
 const JuegoStyled = styled.div`
     display: flex;
@@ -17,20 +18,28 @@ const JuegoStyled = styled.div`
         text-transform: uppercase;
     }
 
+    .resultado{
+        text-align: center;
+        h2{
+            text-transform: uppercase;
+        }
+    }
+
 
 `
 const fichas =[
 
-    'papel',
-    'tijera',
-    'piedra',
-    'spock',
+    'Papel',
+    'Tijera',
+    'Piedra',
+    'Spock',
     'lagarto',
 
 ]
 
 function Juego(){
-
+    const[resultado, setResultado] = useState('')
+    const [fichaMaquina, setfichaMaquina ] = useState('default')
     const [jugadorEnJuego, setJugadorEnJuego] = useState (false) 
     const [tocar, setTocar] = useState('')
     
@@ -40,9 +49,107 @@ function Juego(){
 
     function onClick(name){
          
-        // fichas[getRandomInt(0,5)]
-         setJugadorEnJuego(true)
+         setJugadorEnJuego(true )
          setTocar(name)
+         const fichaMaquina = fichas[getRandomInt(0,5)]
+         setfichaMaquina(fichaMaquina)
+         const resultado= enjuego(name, fichaMaquina)
+         setResultado(resultado)
+
+    }
+
+    function enjuego(name, fichaMaquina){
+        if (fichaMaquina === name){
+                return 'Empate'
+        }
+        if(name ==='Papel' ){
+            if(fichaMaquina === 'Tijera'){
+                return 'Perdiste'
+            }
+            if(fichaMaquina === 'Piedra'){
+                return 'Ganaste'
+            }
+
+            if(fichaMaquina === 'lagarto'){
+                return 'Perdiste'
+            }
+
+            if(fichaMaquina === 'Spock'){
+                return 'Ganaste'
+            }
+
+        }
+
+        if(name ==='Tijera' ){
+            if(fichaMaquina === 'Papel'){
+                return 'Ganaste'
+            }
+            if(fichaMaquina === 'lagarto'){
+                return 'Ganaste'
+            }
+
+            if(fichaMaquina === 'Spock'){
+                return 'Perdiste'
+            }
+
+            if(fichaMaquina === 'Piedra'){
+                return 'Perdiste'
+            }
+        }
+         
+        if(name ==='Piedra' ){
+            if(fichaMaquina === 'Papel'){
+                return 'Perdiste'
+            }
+            if(fichaMaquina === 'lagarto'){
+                return 'Ganaste'
+            }
+
+            if(fichaMaquina === 'Spock'){
+                return 'Perdiste'
+            }
+
+            if(fichaMaquina === 'Tijera'){
+                return 'Ganaste'
+            }
+        }
+         if(name ==='lagarto' ){
+             if(fichaMaquina === 'Papel'){
+                 return 'Ganaste'
+             }
+            if(fichaMaquina === 'Tijera'){
+                return 'Perdiste'
+            }
+    
+             if(fichaMaquina === 'Spock'){
+                return 'Ganaste'
+            }
+    
+            if(fichaMaquina === 'Piedra'){
+                return 'Perdiste'
+            }
+         }
+        if(name ==='Spock' ){
+            if(fichaMaquina === 'Papel'){
+                return 'Perdiste'
+            }
+            if(fichaMaquina === 'lagarto'){
+                return 'Perdiste'
+             }
+    
+            if(fichaMaquina === 'Tijera'){
+                return 'Ganaste'
+            }
+    
+            if(fichaMaquina === 'Piedra'){
+                return 'Ganaste'
+            }
+        }
+    }
+
+
+    function jugardenuevo(){
+        setJugadorEnJuego(false)
     }
         return(
             <JuegoStyled>
@@ -64,12 +171,15 @@ function Juego(){
                             </div>
                       
                             <div className = "En-Juego">
-                                <Ficha/>
+                                <Ficha name = {fichaMaquina}/>
                                 <p>Maquina Seleccion</p>   
                             </div>
 
                             <div className = "resultado">
-                                Jugar de Nuevo
+                                <h2>{resultado}</h2>
+                                <Boton onClick ={jugardenuevo}>
+                                    Jugar de nuevo
+                                </Boton>
                             </div>  
                         </>
                          )

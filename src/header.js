@@ -4,17 +4,19 @@ import Puntaje from './puntaje'
 
 const HeaderStyled = styled.div`
     color: grey;
-    padding 13px;
+    padding 20px;
     border-radius: .5em;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items:right;
     
     h2{
-        font-size: 18px;
-        line-height: 20px;
-        font-weight: 700;
+        font-size: 30px;
+        line-height: 12px;
+        font-weight: 400;
         text-transform: uppercase;
+        justify-content: center;
+       
     }
 `
 
@@ -26,14 +28,12 @@ function Header(){
                 <h2> 
                    
                    Piedra-Papel-Tijera-Lagarto-Spock
-                   <br></br>
-                   <br></br>
     
                 </h2>
 
 
-                <Puntaje/>
-               
+              {/*  <Puntaje/>
+               */}
             </HeaderStyled>
         )
 

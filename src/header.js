@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import Puntaje from './puntaje'
 
 const HeaderStyled = styled.div`
-    color: black;
-    padding 12px;
+    color: grey;
+    padding 13px;
     border-radius: .5em;
     display: flex;
     justify-content: space-between;
-    align-items:center;
-    border: 3px Solid rgba(150,150,150, 29);
+    align-items:right;
+    
     h2{
         font-size: 18px;
         line-height: 20px;
@@ -24,12 +24,13 @@ function Header(){
             <HeaderStyled>
                 
                 <h2> 
-                    Bienvenido al juego 
-                    <br/>Piedra<br/>Papel<br/>tijera<br/>lagarto<br/>Spock
                    
+                   Piedra-Papel-Tijera-Lagarto-Spock
+                   <br></br>
+                   <br></br>
+    
                 </h2>
 
-                
 
                 <Puntaje/>
                

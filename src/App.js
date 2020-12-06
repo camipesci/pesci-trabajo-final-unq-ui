@@ -1,13 +1,12 @@
-import './App.css';
 import Header from'./header';
 import styled from 'styled-components';
 import Wrapper from './wrapper';
 import Juego from './juego';
-
+import Home from './Home';
 
 
 const AppStyled = styled.main`
-  background: #cde1c3;
+  background: #c9d6ed;
   min-height:100vh;
   padding: 4em 0;
   box-sizing: border-box
@@ -19,16 +18,11 @@ const AppStyled = styled.main`
   }
 
 `
-
-
-
 function App() {
   return (
     <AppStyled>
       <Wrapper>
-      
-        <div classNme= "app-content">
-            
+        <div classNme= "app-content"> 
             <Header/>
             <Juego />
         </div>

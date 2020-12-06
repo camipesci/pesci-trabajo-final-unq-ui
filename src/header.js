@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Puntaje from './puntaje'
 
 const HeaderStyled = styled.div`
-    color: grey;
+    color: #06276b;
     padding 20px;
     border-radius: .5em;
     display: flex;
@@ -18,6 +17,7 @@ const HeaderStyled = styled.div`
         justify-content: center;
        
     }
+
 `
 
 function Header(){
@@ -32,8 +32,6 @@ function Header(){
                 </h2>
 
 
-              {/*  <Puntaje/>
-               */}
             </HeaderStyled>
         )
 

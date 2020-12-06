@@ -42,6 +42,8 @@ function Juego(){
     const [fichaMaquina, setfichaMaquina ] = useState('default')
     const [jugadorEnJuego, setJugadorEnJuego] = useState (false) 
     const [tocar, setTocar] = useState('')
+    const [puntajeJugador, setPuntajeJugador1] = useState(0);
+    const [puntajeMaquina, setPuntajeMaquina] = useState(0);
     
     function getRandomInt(min,max){
         return Math.floor(Math.random() * (max - min)) + min
@@ -64,17 +66,22 @@ function Juego(){
         }
         if(name ==='Papel' ){
             if(fichaMaquina === 'Tijera'){
+                setPuntajeMaquina(puntajeMaquina + 1);
                 return 'Perdiste'
             }
             if(fichaMaquina === 'Piedra'){
+                setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
+                
             }
 
             if(fichaMaquina === 'lagarto'){
+                setPuntajeMaquina(puntajeMaquina + 1);
                 return 'Perdiste'
             }
 
             if(fichaMaquina === 'Spock'){
+                setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
             }
 
@@ -82,66 +89,83 @@ function Juego(){
 
         if(name ==='Tijera' ){
             if(fichaMaquina === 'Papel'){
-                return 'Ganaste'
+                setPuntajeJugador1(puntajeJugador + 1);
+                return 'Ganaste';
+                
             }
             if(fichaMaquina === 'lagarto'){
+                setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
             }
 
             if(fichaMaquina === 'Spock'){
+                setPuntajeMaquina(puntajeMaquina + 1);
                 return 'Perdiste'
             }
 
             if(fichaMaquina === 'Piedra'){
+                setPuntajeMaquina(puntajeMaquina + 1);
                 return 'Perdiste'
             }
         }
          
         if(name ==='Piedra' ){
             if(fichaMaquina === 'Papel'){
+                setPuntajeMaquina(puntajeMaquina + 1);
                 return 'Perdiste'
             }
             if(fichaMaquina === 'lagarto'){
+                setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
             }
 
             if(fichaMaquina === 'Spock'){
+                setPuntajeMaquina(puntajeMaquina + 1);
                 return 'Perdiste'
             }
 
             if(fichaMaquina === 'Tijera'){
+                setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
             }
         }
          if(name ==='lagarto' ){
              if(fichaMaquina === 'Papel'){
+                setPuntajeJugador1(puntajeJugador + 1);
                  return 'Ganaste'
              }
             if(fichaMaquina === 'Tijera'){
+                setPuntajeMaquina(puntajeMaquina + 1);
                 return 'Perdiste'
             }
     
              if(fichaMaquina === 'Spock'){
+                setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
             }
     
             if(fichaMaquina === 'Piedra'){
+                setPuntajeMaquina(puntajeMaquina + 1);
                 return 'Perdiste'
             }
          }
         if(name ==='Spock' ){
             if(fichaMaquina === 'Papel'){
+                setPuntajeMaquina(puntajeMaquina + 1);
                 return 'Perdiste'
             }
             if(fichaMaquina === 'lagarto'){
+                setPuntajeMaquina(puntajeMaquina + 1);
                 return 'Perdiste'
              }
     
             if(fichaMaquina === 'Tijera'){
+                setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
             }
     
             if(fichaMaquina === 'Piedra'){
+                setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
             }
         }
@@ -177,6 +201,8 @@ function Juego(){
 
                             <div className = "resultado">
                                 <h2>{resultado}</h2>
+                                <h2>Puntaje Jugador {puntajeJugador}</h2>
+                                 <h2>Puntaje Maquina {puntajeMaquina}</h2>
                                 <Boton onClick ={jugardenuevo}>
                                     Jugar de nuevo
                                 </Boton>

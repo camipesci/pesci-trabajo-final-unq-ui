@@ -52,7 +52,10 @@ const colores ={
 function Ficha({name = '', onClick}){
 
     function handleClick(){
-        onClick(name)
+        if(onClick){
+            onClick(name)
+        }
+       
     }
 
     const color = (colores[name]) ? colores[name] : colores.default

@@ -9,7 +9,7 @@ const FichaStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items:center;
-    background: white;
+    background: #edeaea;
     box-shadow: 0 10px 0 ${({ color }) => color.borde};
     &:active{
         transform: scale(.9);
@@ -49,19 +49,16 @@ const colores ={
     
 }
 
-function Ficha({name = '', onClick}){
+const Ficha = ({name, onClick}) => {
 
-    function handleClick(){
-        if(onClick){
-            onClick(name)
-        }
-       
+    const handleClick = (e) => {
+        onClick(name)
     }
 
     const color = (colores[name]) ? colores[name] : colores.default
     
     return(
-            <FichaStyled color={color} onClick={handleClick}>
+            <FichaStyled color={color} onClick={(e) => handleClick(e)}>
                 <img src={`./${name}.svg`} alt=""/>
             </FichaStyled>
         )

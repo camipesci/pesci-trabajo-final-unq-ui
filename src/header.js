@@ -10,9 +10,9 @@ const HeaderStyled = styled.div`
     align-items:right;
     
     h2{
-        font-size: 30px;
-        line-height: 12px;
-        font-weight: 400;
+        font-size: 21px;
+        line-height: 16px;
+        font-weight: 700;
         text-transform: uppercase;
         justify-content: center;
        

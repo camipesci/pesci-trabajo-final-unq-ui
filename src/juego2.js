@@ -38,49 +38,65 @@ const fichas =[
 ]
 
 function Juego(){
-    const[resultado, setResultado] = useState('')
-    const [fichaMaquina, setfichaMaquina ] = useState('default')
+    const [resultado, setResultado] = useState('')
     const [jugadorEnJuego, setJugadorEnJuego] = useState (false) 
+    const [jugadorEnJuego2, setJugadorEnJuego2] = useState (false) 
     const [tocar, setTocar] = useState('')
+    const [tocar2, setTocar2] = useState('')
     const [puntajeJugador, setPuntajeJugador1] = useState(0);
-    const [puntajeMaquina, setPuntajeMaquina] = useState(0);
-    
-    function getRandomInt(min,max){
-        return Math.floor(Math.random() * (max - min)) + min
-    }
-
-    function onClick(name){
+    const [puntajeJugador2, setPuntajeJugador2] = useState(0);
+   
+    const onClick2 = (name2) => {
          
-         setJugadorEnJuego(true )
+        setJugadorEnJuego2(true)
+        setTocar2(name2)
+
+        const resultado= enjuego()
+        setResultado(resultado)
+      
+
+   }
+    const onClick = (name) => {
+         
+         setJugadorEnJuego(true)
          setTocar(name)
-         const fichaMaquina = fichas[getRandomInt(0,5)]
-         setfichaMaquina(fichaMaquina)
-         const resultado= enjuego(name, fichaMaquina)
+       
+         const resultado= enjuego()
          setResultado(resultado)
 
     }
+  
 
-    function enjuego(name, fichaMaquina){
-        if (fichaMaquina === name){
+    function enjuego(){
+        const name = tocar
+        const name2 = tocar2
+        console.log("Name 1", tocar)
+        console.log("Name 2", tocar2)
+
+        if(!jugadorEnJuego || !jugadorEnJuego2){
+            return '';
+        }
+
+        if (name2 === name){
                 return 'Empate'
         }
         if(name ==='Papel' ){
-            if(fichaMaquina === 'Tijera'){
-                setPuntajeMaquina(puntajeMaquina + 1);
+            if(name2 === 'Tijera'){
+                setPuntajeJugador2(puntajeJugador2 + 1);
                 return 'Perdiste'
             }
-            if(fichaMaquina === 'Piedra'){
+            if(name2 === 'Piedra'){
                 setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
                 
             }
 
-            if(fichaMaquina === 'lagarto'){
-                setPuntajeMaquina(puntajeMaquina + 1);
+            if(name2 === 'lagarto'){
+                setPuntajeJugador2(puntajeJugador2 + 1);
                 return 'Perdiste'
             }
 
-            if(fichaMaquina === 'Spock'){
+            if(name2 === 'Spock'){
                 setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
             }
@@ -88,83 +104,83 @@ function Juego(){
         }
 
         if(name ==='Tijera' ){
-            if(fichaMaquina === 'Papel'){
+            if(name2 === 'Papel'){
                 setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste';
                 
             }
-            if(fichaMaquina === 'lagarto'){
+            if(name2 === 'lagarto'){
                 setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
             }
 
-            if(fichaMaquina === 'Spock'){
-                setPuntajeMaquina(puntajeMaquina + 1);
+            if(name2 === 'Spock'){
+                setPuntajeJugador2(puntajeJugador2 + 1);
                 return 'Perdiste'
             }
 
-            if(fichaMaquina === 'Piedra'){
-                setPuntajeMaquina(puntajeMaquina + 1);
+            if(name2 === 'Piedra'){
+                setPuntajeJugador2(puntajeJugador2 + 1);
                 return 'Perdiste'
             }
         }
          
         if(name ==='Piedra' ){
-            if(fichaMaquina === 'Papel'){
-                setPuntajeMaquina(puntajeMaquina + 1);
+            if(name2 === 'Papel'){
+                setPuntajeJugador2(puntajeJugador2 + 1);
                 return 'Perdiste'
             }
-            if(fichaMaquina === 'lagarto'){
+            if(name2 === 'lagarto'){
                 setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
             }
 
-            if(fichaMaquina === 'Spock'){
-                setPuntajeMaquina(puntajeMaquina + 1);
+            if(name2 === 'Spock'){
+                setPuntajeJugador2(puntajeJugador2 + 1);
                 return 'Perdiste'
             }
 
-            if(fichaMaquina === 'Tijera'){
+            if(name2 === 'Tijera'){
                 setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
             }
         }
          if(name ==='lagarto' ){
-             if(fichaMaquina === 'Papel'){
+             if(name2 === 'Papel'){
                 setPuntajeJugador1(puntajeJugador + 1);
                  return 'Ganaste'
              }
-            if(fichaMaquina === 'Tijera'){
-                setPuntajeMaquina(puntajeMaquina + 1);
+            if(name2 === 'Tijera'){
+                setPuntajeJugador2(puntajeJugador2 + 1);
                 return 'Perdiste'
             }
     
-             if(fichaMaquina === 'Spock'){
+             if(name2 === 'Spock'){
                 setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
             }
     
-            if(fichaMaquina === 'Piedra'){
-                setPuntajeMaquina(puntajeMaquina + 1);
+            if(name2 === 'Piedra'){
+                setPuntajeJugador2(puntajeJugador2 + 1);
                 return 'Perdiste'
             }
          }
         if(name ==='Spock' ){
-            if(fichaMaquina === 'Papel'){
-                setPuntajeMaquina(puntajeMaquina + 1);
+            if(name2 === 'Papel'){
+                setPuntajeJugador2(puntajeJugador2 + 1);
                 return 'Perdiste'
             }
-            if(fichaMaquina === 'lagarto'){
-                setPuntajeMaquina(puntajeMaquina + 1);
+            if(name2 === 'lagarto'){
+                setPuntajeJugador2(puntajeJugador2 + 1);
                 return 'Perdiste'
              }
     
-            if(fichaMaquina === 'Tijera'){
+            if(name2 === 'Tijera'){
                 setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
             }
     
-            if(fichaMaquina === 'Piedra'){
+            if(name2 === 'Piedra'){
                 setPuntajeJugador1(puntajeJugador + 1);
                 return 'Ganaste'
             }
@@ -174,36 +190,45 @@ function Juego(){
 
     function jugardenuevo(){
         setJugadorEnJuego(false)
+        setJugadorEnJuego2(false)
     }
         return(
             <JuegoStyled>
                 {
-                    !jugadorEnJuego ? (
+                    !jugadorEnJuego || !jugadorEnJuego2 ? (
                         <>
+                            <h1>Jugador 1</h1>
                             <Ficha name = "Piedra" onClick={onClick} />
                             <Ficha name = "Papel" onClick={onClick}/>
                             <Ficha name = "Tijera" onClick={onClick}/>
                             <Ficha name = "lagarto" onClick={onClick}/>
                             <Ficha name = "Spock" onClick={onClick}/>
                             
+                            <h1>Jugador 2</h1>
+
+                            <Ficha name = "Piedra" onClick={onClick2} />
+                            <Ficha name = "Papel" onClick={onClick2}/>
+                            <Ficha name = "Tijera" onClick={onClick2}/>
+                            <Ficha name = "lagarto" onClick={onClick2}/>
+                            <Ficha name = "Spock" onClick={onClick}/>
                         </>
                     ) :(
                         <>
                             <div className = "En-Juego">
 
                                 <Ficha name = {tocar} />
-                                <p>Tu seleccion</p>
+                                <p>Seleccion Jugador 1</p>
                             </div>
                       
                             <div className = "En-Juego">
-                                <Ficha name = {fichaMaquina}/>
-                                <p>Maquina Seleccion</p>   
+                                <Ficha name = {tocar2}/>
+                                <p>Seleccion Jugador 2</p>   
                             </div>
 
                             <div className = "resultado">
                                 <h2>{resultado}</h2>
-                                <h2>Puntaje Jugador {puntajeJugador}</h2>
-                                 <h2>Puntaje Maquina {puntajeMaquina}</h2>
+                                <h2>Puntaje Jugador 1 {puntajeJugador}</h2>
+                                 <h2>Puntaje jugador 2 {puntajeJugador2}</h2>
                                 <Boton onClick ={jugardenuevo}>
                                     Jugar de nuevo
                                 </Boton>

@@ -2,20 +2,26 @@ import React, {useState } from 'react';
 import styled from 'styled-components';
 import Ficha from './ficha';
 import Boton from './boton';
+import { Link } from 'react-router-dom';
+import Casa from './casa.svg';
+
 
 const JuegoStyled = styled.div`
+    align-items: center;
+    background: #cde1c3;
+    height: 100vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    grid-gap: 20px;
-    &div: nth-of-type(3){
-
-        grid-column:span 2;
-
-    }
+    grid-gap: 50px;
+    
+    
+   
+   
     .En-Juego{
         text-align: center;
         text-transform: uppercase;
+        
     }
 
     .resultado{
@@ -23,7 +29,10 @@ const JuegoStyled = styled.div`
         h2{
             text-transform: uppercase;
         }
+        
     }
+
+  
 
 
 `
@@ -178,20 +187,22 @@ function Juego(){
                 {
                     !jugadorEnJuego || !jugadorEnJuego2 ? (
                         <>
-                            <h1>Jugador 1</h1>
+                        
+                            <h1>JUGADOR 1</h1>
                             <Ficha name = "Piedra" onClick={() => {onClick("Piedra")}} />
                             <Ficha name = "Papel" onClick={() => {onClick("Papel")}}/>
                             <Ficha name = "Tijera" onClick={() => {onClick("Tijera")}}/>
                             <Ficha name = "lagarto" onClick={() => {onClick("lagarto")}}/>
                             <Ficha name = "Spock" onClick={() => {onClick("Spock")}}/>
                             
-                            <h1>Jugador 2</h1>
+                            <h1>JUGADOR 2</h1>
 
                             <Ficha name = "Piedra" onClick={() => {onClick2("Piedra")}} />
                             <Ficha name = "Papel" onClick={() => {onClick2("Papel")}}/>
                             <Ficha name = "Tijera" onClick={() => {onClick2("Tijera")}}/>
                             <Ficha name = "lagarto" onClick={() => {onClick2("lagarto")}}/>
                             <Ficha name = "Spock" onClick={() => {onClick2("Spock")}}/>
+                        
                         </>
                     ) :(
                         <>
@@ -214,6 +225,12 @@ function Juego(){
                                     Jugar de nuevo
                                 </Boton>
                             </div>  
+
+                            <div className="row">
+                            <div className="main-menu">
+                                <Link to="/"><button className="boton-home grey" ><img src={Casa} className="home" width="50" height="60"/></button></Link>
+                            </div>
+                            </div>
                         </>
                          )
 

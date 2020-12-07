@@ -2,8 +2,15 @@ import React, {useState } from 'react';
 import styled from 'styled-components';
 import Ficha from './ficha';
 import Boton from './boton';
+import Header from './header';
+import Casa from './casa.svg';
+import { Link } from 'react-router-dom';
 
 const JuegoStyled = styled.div`
+
+    align-items: center;
+    background: #cde1c3;
+    height: 100vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -24,6 +31,21 @@ const JuegoStyled = styled.div`
             text-transform: uppercase;
         }
     }
+    .main-menu{
+        display: flex;
+        padding: 20px;
+        justify-content: center;
+    }
+
+
+    .boton-home{
+        background-color: rgb(158,158,158);
+        border-radius: 10px;
+        border: 4px solid  black;
+        margin: 15px;
+    }
+
+ 
 
 
 `
@@ -51,7 +73,7 @@ function Juego(){
 
     function onClick(name){
          
-         setJugadorEnJuego(true )
+         setJugadorEnJuego(true)
          setTocar(name)
          const fichaMaquina = fichas[getRandomInt(0,5)]
          setfichaMaquina(fichaMaquina)
@@ -177,6 +199,7 @@ function Juego(){
     }
         return(
             <JuegoStyled>
+               
                 {
                     !jugadorEnJuego ? (
                         <>
@@ -208,6 +231,13 @@ function Juego(){
                                     Jugar de nuevo
                                 </Boton>
                             </div>  
+
+                            <div className="row">
+                            <div className="main-menu">
+                                <Link to="/"><button className="boton-home grey" ><img src={Casa} className="home" width="50" height="60"/></button></Link>
+                            </div>
+                            
+                        </div>
                         </>
                          )
 

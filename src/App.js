@@ -1,4 +1,5 @@
 import Header from'./header';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import styled from 'styled-components';
 import Wrapper from './wrapper';
 import Juego from './juego';
@@ -21,14 +22,14 @@ const AppStyled = styled.main`
 `
 function App() {
   return (
-    <AppStyled>
-      <Wrapper>
-        <div classNme= "app-content"> 
-            <Header/>
-            <Juego2 />
-        </div>
-      </Wrapper>
-    </AppStyled>
+    <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component ={ Home } />
+      <Route exact path="/juego" component = {Juego}/>
+      <Route exact path="/juego2" component = {Juego2}/>
+      <Route path="*" render= {() => <h1>Not Found</h1>} />
+    </Switch>
+  </BrowserRouter>
   );
 }
 

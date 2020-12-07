@@ -7,45 +7,77 @@ import Casa from './casa.svg';
 
 
 const JuegoStyled = styled.div`
-    align-items: center;
-    background: #cde1c3;
-    height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    grid-gap: 50px;
-    align-items: center;
-    
-    
-   
-   
-    .En-Juego{
-        text-align: center;
-        text-transform: uppercase;
-        
-    }
+background: #f9d9d9;
+height: 100vh;
+display: flex;
+justify-content: center;
+grid-gap: 10px;
+align-items: center;
+flex-direction: row;
 
-    .resultado{
-        text-align: center;
-        h2{
-            text-transform: uppercase;
-        }
-        
+.inicio{
+    isplay: flex;
+    justify-content: center;
+    grid-gap: 10px;
+    align-items: center;
+    
+
+.j1{
+    display: flex;
+    justify-content: center;
+    grid-gap: 10px;
+    align-items: center;
+    padding : 2em;
+
+}
+
+.j2{
+    display: flex;
+    justify-content: center;
+    grid-gap: 10px;
+    align-items: center;
+
+}
+}
+
+
+.fichas{
+    display: flex;
+    justify-content: center;
+    grid-gap: 10px;
+    align-items: center;
+}
+.resultado{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    h2{
+        text-transform: uppercase;
     }
 
     .boton-home{
-        background-color: transparent;
-        border-radius: 40px;
+        background-color: #5c79b3;
+        border-radius: 10px;
         border: 2px solid  black;
-        margin: 50px;
-        display: flex;
-        padding: 10px;
+        margin: 60px;
+        
+        padding: 5px;
+        cursor:pointer;
         
     }
 
-  
-
-
+    .En-Juego{
+       
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+        grid-gap: 10px;
+       
+        
+    }
+}
 `
 
 function Juego(){
@@ -199,49 +231,54 @@ function Juego(){
                     !jugadorEnJuego || !jugadorEnJuego2 ? (
                         <>
                         
-                            <h1>JUGADOR 1</h1>
-                            <Ficha name = "Piedra" onClick={() => {onClick("Piedra")}} />
-                            <Ficha name = "Papel" onClick={() => {onClick("Papel")}}/>
-                            <Ficha name = "Tijera" onClick={() => {onClick("Tijera")}}/>
-                            <Ficha name = "lagarto" onClick={() => {onClick("lagarto")}}/>
-                            <Ficha name = "Spock" onClick={() => {onClick("Spock")}}/>
-                            
-                            <h1>JUGADOR 2</h1>
-
-                            <Ficha name = "Piedra" onClick={() => {onClick2("Piedra")}} />
-                            <Ficha name = "Papel" onClick={() => {onClick2("Papel")}}/>
-                            <Ficha name = "Tijera" onClick={() => {onClick2("Tijera")}}/>
-                            <Ficha name = "lagarto" onClick={() => {onClick2("lagarto")}}/>
-                            <Ficha name = "Spock" onClick={() => {onClick2("Spock")}}/>
-                        
+                            <div className = "inicio">
+                                <div className = "j1">
+                                    <h1>Seleccion Jugador 1</h1>
+                                    <Ficha name = "Piedra" onClick={() => {onClick("Piedra")}} />
+                                    <Ficha name = "Papel" onClick={() => {onClick("Papel")}}/>
+                                    <Ficha name = "Tijera" onClick={() => {onClick("Tijera")}}/>
+                                    <Ficha name = "lagarto" onClick={() => {onClick("lagarto")}}/>
+                                    <Ficha name = "Spock" onClick={() => {onClick("Spock")}}/>
+                                </div>
+                                <div className = "j2">
+                                    <h1>Seleccion Jugador 2</h1>
+                                    <Ficha name = "Piedra" onClick={() => {onClick2("Piedra")}} />
+                                    <Ficha name = "Papel" onClick={() => {onClick2("Papel")}}/>
+                                    <Ficha name = "Tijera" onClick={() => {onClick2("Tijera")}}/>
+                                    <Ficha name = "lagarto" onClick={() => {onClick2("lagarto")}}/>
+                                    <Ficha name = "Spock" onClick={() => {onClick2("Spock")}}/>
+                                </div>
+                            </div>
                         </>
                     ) :(
                         <>
-                            <div className = "En-Juego">
-
-                                <Ficha name = {tocar} />
-                                <p>Seleccion Jugador 1</p>
-                            </div>
-                      
-                            <div className = "En-Juego">
-                                <Ficha name = {tocar2}/>
-                                <p>Seleccion Jugador 2</p>   
-                            </div>
+                            
 
                             <div className = "resultado">
+                            <div className = "En-Juego">
+                                <h1>-Seleccion Jugador 1-</h1>
+                                <Ficha name = {tocar} />
+                                
+                                
+                                <Ficha name = {tocar2}/>
+                                <h1>-Seleccion Jugador 2-</h1> 
+                                  
+                            </div>
                                 <h2>{resultado}</h2>
                                 <h2>Puntaje Jugador 1 {puntajeJugador}</h2>
-                                 <h2>Puntaje jugador 2 {puntajeJugador2}</h2>
+                                <h2>Puntaje jugador 2 {puntajeJugador2}</h2>
                                 <Boton onClick ={jugardenuevo}>
                                     Jugar de nuevo
                                 </Boton>
+
+                                <div className="row">
+                                     <div className="main-menu">
+                                        <Link to="/"><button className="boton-home grey" ><img src={Casa} className="home" width="50" height="60"/></button></Link>
+                                     </div>
+                                 </div>
                             </div>  
 
-                            <div className="row">
-                            <div className="main-menu">
-                                <Link to="/"><button className="boton-home grey" ><img src={Casa} className="home" width="50" height="60"/></button></Link>
-                            </div>
-                            </div>
+                            
                         </>
                          )
 

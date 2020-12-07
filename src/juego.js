@@ -7,38 +7,61 @@ import { Link } from 'react-router-dom';
 
 const JuegoStyled = styled.div`
 
-    align-items: center;
-    background: #cde1c3;
+    
+    background: #f9d9d9;
     height: 100vh;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    grid-gap: 20px;
+    grid-gap: 10px;
     align-items: center;
   
-    .En-Juego{
-        text-align: center;
-        text-transform: uppercase;
+    .menu{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
     }
-
+    .fichas{
+        display: flex;
+        justify-content: center;
+        grid-gap: 10px;
+        align-items: center;
+    }
     .resultado{
-        text-align: center;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
         h2{
             text-transform: uppercase;
+        }
+
+        .boton-home{
+            background-color: #5c79b3;
+            border-radius: 10px;
+            border: 2px solid  black;
+            margin: 60px;
+            
+            padding: 5px;
+            cursor:pointer;
+            
+        }
+
+        .En-Juego{
+           
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: center;
+            grid-gap: 10px;
+           
+            
         }
     }
    
 
 
-    .boton-home{
-        background-color: transparent;
-        border-radius: 40px;
-        border: 2px solid  black;
-        margin: 50px;
-        display: flex;
-        padding: 10px;
-        
-    }
+   
 
    
 
@@ -200,43 +223,51 @@ function Juego(){
                 {
                     !jugadorEnJuego ? (
                         <>
-                            <h1>TU SELECCION</h1>
+                           <div className = "Menu">
+                           <h1>¿Que vas a elegir?</h1>
+                           <br></br>
+                           <br></br>
+                            <div className = "fichas">
                             
                             <Ficha name = "Piedra" onClick={onClick} />
                             <Ficha name = "Papel" onClick={onClick}/>
                             <Ficha name = "Tijera" onClick={onClick}/>
                             <Ficha name = "lagarto" onClick={onClick}/>
                             <Ficha name = "Spock" onClick={onClick}/>
-                            
+                            </div>
+                            </div>
                         </>
                     ) :(
                         <>
-                            <div className = "En-Juego">
-
-                                <Ficha name = {tocar} />
-                                <p>Tu seleccion</p>
-                            </div>
-                      
-                            <div className = "En-Juego">
-                                <Ficha name = {fichaMaquina}/>
-                                <p>Maquina Seleccion</p>   
-                            </div>
+                        
+                           
 
                             <div className = "resultado">
+                            <div className = "En-Juego">
+                                <h1>-Tu seleccion-</h1>
+                                <Ficha name = {tocar} />
+                                    
+                                 
+                                <Ficha name = {fichaMaquina}/>
+                                <h1>Seleccion PC</h1> 
+                                 
+                            </div>
+                            
                                 <h2>{resultado}</h2>
                                 <h2>Puntaje Jugador {puntajeJugador}</h2>
                                  <h2>Puntaje Maquina {puntajeMaquina}</h2>
                                 <Boton onClick ={jugardenuevo}>
                                     Jugar de nuevo
                                 </Boton>
+
+                                <div className="row">
+                                     <div className="main-menu">
+                                        <Link to="/"><button className="boton-home grey" ><img src={Casa} className="home" width="50" height="60"/></button></Link>
+                                     </div>
+                                 </div>
                             </div>  
 
-                            <div className="row">
-                            <div className="main-menu">
-                                <Link to="/"><button className="boton-home grey" ><img src={Casa} className="home" width="50" height="60"/></button></Link>
-                            </div>
-                            
-                        </div>
+                           
                         </>
                          )
 

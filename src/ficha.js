@@ -51,8 +51,10 @@ const colores ={
 
 const Ficha = ({name, onClick}) => {
 
-    const handleClick = (e) => {
-        onClick(name)
+    const handleClick = () => {
+        if(onClick){
+            onClick(name)
+        }
     }
 
     const color = (colores[name]) ? colores[name] : colores.default

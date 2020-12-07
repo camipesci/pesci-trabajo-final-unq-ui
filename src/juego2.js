@@ -27,55 +27,34 @@ const JuegoStyled = styled.div`
 
 
 `
-const fichas =[
-
-    'Papel',
-    'Tijera',
-    'Piedra',
-    'Spock',
-    'lagarto',
-
-]
 
 function Juego(){
     const [resultado, setResultado] = useState('')
     const [jugadorEnJuego, setJugadorEnJuego] = useState (false) 
     const [jugadorEnJuego2, setJugadorEnJuego2] = useState (false) 
-    const [tocar, setTocar] = useState('')
-    const [tocar2, setTocar2] = useState('')
+    const [tocar, setTocar] = useState()
+    const [tocar2, setTocar2] = useState()
     const [puntajeJugador, setPuntajeJugador1] = useState(0);
     const [puntajeJugador2, setPuntajeJugador2] = useState(0);
    
-    const onClick2 = (name2) => {
-         
-        setJugadorEnJuego2(true)
-        setTocar2(name2)
-
-        const resultado= enjuego()
-        setResultado(resultado)
-      
-
-   }
     const onClick = (name) => {
-         
-         setJugadorEnJuego(true)
-         setTocar(name)
-       
-         const resultado= enjuego()
-         setResultado(resultado)
+        setJugadorEnJuego(true)
+        setTocar(name)
+    }
+  
+    const onClick2 = (name) => {
+        
+        setJugadorEnJuego2(true)
+        setTocar2(name)
+        const resultado= enjuego(tocar, name)
+        setResultado(resultado)
 
     }
   
-
-    function enjuego(){
-        const name = tocar
-        const name2 = tocar2
-        console.log("Name 1", tocar)
-        console.log("Name 2", tocar2)
-
-        if(!jugadorEnJuego || !jugadorEnJuego2){
-            return '';
-        }
+    function enjuego(name, name2){
+       
+        
+        
 
         if (name2 === name){
                 return 'Empate'
@@ -83,22 +62,22 @@ function Juego(){
         if(name ==='Papel' ){
             if(name2 === 'Tijera'){
                 setPuntajeJugador2(puntajeJugador2 + 1);
-                return 'Perdiste'
+                return 'Gano Jugador 2'
             }
             if(name2 === 'Piedra'){
                 setPuntajeJugador1(puntajeJugador + 1);
-                return 'Ganaste'
+                return 'Gano Jugador 1'
                 
             }
 
             if(name2 === 'lagarto'){
                 setPuntajeJugador2(puntajeJugador2 + 1);
-                return 'Perdiste'
+                return 'Gano Jugador 2'
             }
 
             if(name2 === 'Spock'){
                 setPuntajeJugador1(puntajeJugador + 1);
-                return 'Ganaste'
+                return 'Gano Jugador 1'
             }
 
         }
@@ -106,85 +85,87 @@ function Juego(){
         if(name ==='Tijera' ){
             if(name2 === 'Papel'){
                 setPuntajeJugador1(puntajeJugador + 1);
-                return 'Ganaste';
+                return 'Gano Jugador 1';
                 
             }
             if(name2 === 'lagarto'){
                 setPuntajeJugador1(puntajeJugador + 1);
-                return 'Ganaste'
+                return 'Gano Jugador 1'
             }
 
             if(name2 === 'Spock'){
                 setPuntajeJugador2(puntajeJugador2 + 1);
-                return 'Perdiste'
+                return 'Gano Jugador 2'
             }
 
             if(name2 === 'Piedra'){
                 setPuntajeJugador2(puntajeJugador2 + 1);
-                return 'Perdiste'
+                return 'Gano Jugador 2'
             }
         }
          
         if(name ==='Piedra' ){
             if(name2 === 'Papel'){
                 setPuntajeJugador2(puntajeJugador2 + 1);
-                return 'Perdiste'
+                return 'Gano Jugador 2'
             }
             if(name2 === 'lagarto'){
                 setPuntajeJugador1(puntajeJugador + 1);
-                return 'Ganaste'
+                return 'Gano Jugador 1'
             }
 
             if(name2 === 'Spock'){
                 setPuntajeJugador2(puntajeJugador2 + 1);
-                return 'Perdiste'
+                return 'Gano Jugador 2'
             }
 
             if(name2 === 'Tijera'){
                 setPuntajeJugador1(puntajeJugador + 1);
-                return 'Ganaste'
+                return 'Gano Jugador 1'
             }
         }
          if(name ==='lagarto' ){
              if(name2 === 'Papel'){
                 setPuntajeJugador1(puntajeJugador + 1);
-                 return 'Ganaste'
+                 return 'Gano Jugador 1'
              }
             if(name2 === 'Tijera'){
                 setPuntajeJugador2(puntajeJugador2 + 1);
-                return 'Perdiste'
+                return 'Gano Jugador 2'
             }
     
              if(name2 === 'Spock'){
                 setPuntajeJugador1(puntajeJugador + 1);
-                return 'Ganaste'
+                return 'Gano Jugador 1'
             }
     
             if(name2 === 'Piedra'){
                 setPuntajeJugador2(puntajeJugador2 + 1);
-                return 'Perdiste'
+                return 'Gano Jugador 2'
             }
          }
         if(name ==='Spock' ){
             if(name2 === 'Papel'){
                 setPuntajeJugador2(puntajeJugador2 + 1);
-                return 'Perdiste'
+                return 'Gano Jugador 2'
             }
             if(name2 === 'lagarto'){
                 setPuntajeJugador2(puntajeJugador2 + 1);
-                return 'Perdiste'
+                return 'Gano Jugador 2'
              }
     
             if(name2 === 'Tijera'){
                 setPuntajeJugador1(puntajeJugador + 1);
-                return 'Ganaste'
+                return 'Gano Jugador 1'
             }
     
             if(name2 === 'Piedra'){
                 setPuntajeJugador1(puntajeJugador + 1);
-                return 'Ganaste'
+                return 'Gano Jugador 1'
             }
         }
+
+        
     }
 
 
@@ -198,19 +179,19 @@ function Juego(){
                     !jugadorEnJuego || !jugadorEnJuego2 ? (
                         <>
                             <h1>Jugador 1</h1>
-                            <Ficha name = "Piedra" onClick={onClick} />
-                            <Ficha name = "Papel" onClick={onClick}/>
-                            <Ficha name = "Tijera" onClick={onClick}/>
-                            <Ficha name = "lagarto" onClick={onClick}/>
-                            <Ficha name = "Spock" onClick={onClick}/>
+                            <Ficha name = "Piedra" onClick={() => {onClick("Piedra")}} />
+                            <Ficha name = "Papel" onClick={() => {onClick("Papel")}}/>
+                            <Ficha name = "Tijera" onClick={() => {onClick("Tijera")}}/>
+                            <Ficha name = "lagarto" onClick={() => {onClick("lagarto")}}/>
+                            <Ficha name = "Spock" onClick={() => {onClick("Spock")}}/>
                             
                             <h1>Jugador 2</h1>
 
-                            <Ficha name = "Piedra" onClick={onClick2} />
-                            <Ficha name = "Papel" onClick={onClick2}/>
-                            <Ficha name = "Tijera" onClick={onClick2}/>
-                            <Ficha name = "lagarto" onClick={onClick2}/>
-                            <Ficha name = "Spock" onClick={onClick}/>
+                            <Ficha name = "Piedra" onClick={() => {onClick2("Piedra")}} />
+                            <Ficha name = "Papel" onClick={() => {onClick2("Papel")}}/>
+                            <Ficha name = "Tijera" onClick={() => {onClick2("Tijera")}}/>
+                            <Ficha name = "lagarto" onClick={() => {onClick2("lagarto")}}/>
+                            <Ficha name = "Spock" onClick={() => {onClick2("Spock")}}/>
                         </>
                     ) :(
                         <>

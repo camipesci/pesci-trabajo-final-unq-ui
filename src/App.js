@@ -2,6 +2,7 @@ import Header from'./header';
 import styled from 'styled-components';
 import Wrapper from './wrapper';
 import Juego from './juego';
+import Juego2 from './juego2';
 import Home from './Home';
 
 
@@ -24,7 +25,7 @@ function App() {
       <Wrapper>
         <div classNme= "app-content"> 
             <Header/>
-            <Juego />
+            <Juego2 />
         </div>
       </Wrapper>
     </AppStyled>

@@ -5,6 +5,7 @@ import Wrapper from './wrapper';
 import Juego from './juego';
 import Juego2 from './juego2';
 import Home from './Home';
+import Reglas from './reglas';
 
 
 const AppStyled = styled.main`
@@ -27,6 +28,7 @@ function App() {
       <Route exact path="/" component ={ Home } />
       <Route exact path="/juego" component = {Juego}/>
       <Route exact path="/juego2" component = {Juego2}/>
+      <Route exact path="/reglas" component = {Reglas}/>
       <Route path="*" render= {() => <h1>Not Found</h1>} />
     </Switch>
   </BrowserRouter>

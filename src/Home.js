@@ -7,14 +7,14 @@ import styled from 'styled-components';
 const HomeStyled = styled.div`
 
 
-display: flex;
-
-    justify-content: center;
-    align-items: center;
-    background: <img src={./tijera.svg}>
+      display: flex;
+     
+      justify-content: center;
+      align-items: center;
+      background: cornsilk; 
     
-    height: 100vh;
-    text-rendering: optimizeLegibility;
+      height: 100vh;
+      text-rendering: optimizeLegibility;
    
 
     h1{
@@ -25,24 +25,24 @@ display: flex;
     }
 
     .un-jugador{
-        font-size: 3rem;
+        font-size: 2rem;
         text-align: center;
         text-transform: uppercase;
-        color: black;
+        color: pink;
     }
 
     .dos-jugadores{
-        font-size: 3rem;
+        font-size: 2rem;
         text-align: center;
         text-transform: uppercase;
-        color: black;
+        
     }
 
     .reglas{
-        font-size: 3rem;
+        font-size: 2rem;
         text-align: center;
         text-transform: uppercase;
-        color: black;
+       
     }
     
     }

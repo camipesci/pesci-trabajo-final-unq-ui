@@ -2,7 +2,6 @@ import React, {useState } from 'react';
 import styled from 'styled-components';
 import Ficha from './ficha';
 import Boton from './boton';
-import Header from './header';
 import Casa from './casa.svg';
 import { Link } from 'react-router-dom';
 
@@ -15,11 +14,8 @@ const JuegoStyled = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     grid-gap: 20px;
-    &div: nth-of-type(3){
-
-        grid-column:span 2;
-
-    }
+    align-items: center;
+  
     .En-Juego{
         text-align: center;
         text-transform: uppercase;
@@ -31,19 +27,20 @@ const JuegoStyled = styled.div`
             text-transform: uppercase;
         }
     }
-    .main-menu{
-        display: flex;
-        padding: 20px;
-        justify-content: center;
-    }
+   
 
 
     .boton-home{
-        background-color: rgb(158,158,158);
-        border-radius: 10px;
-        border: 4px solid  black;
-        margin: 15px;
+        background-color: transparent;
+        border-radius: 40px;
+        border: 2px solid  black;
+        margin: 50px;
+        display: flex;
+        padding: 10px;
+        
     }
+
+   
 
  
 
@@ -203,6 +200,8 @@ function Juego(){
                 {
                     !jugadorEnJuego ? (
                         <>
+                            <h1>TU SELECCION</h1>
+                            
                             <Ficha name = "Piedra" onClick={onClick} />
                             <Ficha name = "Papel" onClick={onClick}/>
                             <Ficha name = "Tijera" onClick={onClick}/>

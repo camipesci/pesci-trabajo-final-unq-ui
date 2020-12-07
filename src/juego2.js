@@ -14,6 +14,7 @@ const JuegoStyled = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     grid-gap: 50px;
+    align-items: center;
     
     
    
@@ -29,6 +30,16 @@ const JuegoStyled = styled.div`
         h2{
             text-transform: uppercase;
         }
+        
+    }
+
+    .boton-home{
+        background-color: transparent;
+        border-radius: 40px;
+        border: 2px solid  black;
+        margin: 50px;
+        display: flex;
+        padding: 10px;
         
     }
 

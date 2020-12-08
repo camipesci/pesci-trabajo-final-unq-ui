@@ -1,7 +1,5 @@
-import Header from'./header';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import styled from 'styled-components';
-import Wrapper from './wrapper';
 import Juego from './juego';
 import Juego2 from './juego2';
 import Home from './Home';
